@@ -6,14 +6,15 @@
         <th name="operational">Operational</th>
         <th name="orbitType">Orbit Type</th>
         <th name="launchDate">Launch Date</th>
-    </tr>
-    <tbody> 
-    <tr *ngFor="let satellite of satellites" class="data-row">
+    </tr> 
+    <tbody>
+    <tr *ngFor="let satellite of satellites" class="data-row" id="table-row">
         <td>{{satellite.name}}</td>
-        <td>{{satellite.type}}</td>
+        <td *ngIf="satellite.type ==='Space Debris'" class="warning">{{satellite.type}}</td>
+        <td *ngIf="satellite.type !== 'Space Debris'">{{satellite.type}}</td>
         <td>{{satellite.operational}}</td>
         <td>{{satellite.orbitType}}</td>
-        <td>{{satellite.launchDate}}</td>
+        <td>{{satellite.launchDate}}</td>        
     </tr>
     </tbody>
 </table>
